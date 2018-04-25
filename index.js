@@ -11,6 +11,6 @@ app.get('/index', function(req, res){
 
 
 var port = process.env.PORT || 1337;
-server.listen(port);
+app.listen(port);
 
 console.log("Server running at http://localhost:%d", port);
