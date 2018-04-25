@@ -25,22 +25,23 @@
     </style>
 </head>
 <body>
-
+	<p id="counter"></p>
     <div class="container">
     
     <form role="form">
         <div class="row">
             <div class="form-group">
                 <label for="code">Book Name</label>
-                <input type="text" class="form-control input-lg">
+                <input id=UserSearch type="text" class="form-control input-lg">
             </div>
         </div>
 
         <div class="row">
-            <button type="search" class="btn btn-default">Search</button>
+			<script type="text/javascript" src="User-Search-Storage.js"></script>
+            <button type="button" onclick="UserSearch();" class="btn btn-default">Search</button>
         </div>
     </form>
-</div>                      
+	</div>                      
 
 </body>
 </html>
