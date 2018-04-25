@@ -2,17 +2,10 @@ var http = require('http');
 let express = require('express');
 let app = express();
 let path = require('path');
+
 let mainRouter = express.Router();
 
-
-var server = http.createServer(function(request, response) {
-
-    response.writeHead(200, {"Content-Type": "text/plain"});
-    response.end("Hello World!");
-
-});
-
-app.get('/about', function(req, res){
+app.get('/index', function(req, res){
  res.sendFile(path.join(__dirname, 'index.html'));
  });
 
