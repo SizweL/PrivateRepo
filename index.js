@@ -21,7 +21,7 @@ mainRouter.get('/', function (req, res) {
  res.send('Hello World');
  });
 
- mainRouter.get('/about', function(req, res){
+ mainRouter.get('/', function(req, res){
  res.sendFile(path.join(__dirname, 'views', 'about.html'));
  });
 var port = process.env.PORT || 1337;
