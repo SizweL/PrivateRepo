@@ -19,6 +19,7 @@
     </style>
 </head>
 <body>
+ 	<p id="demo"></p>
 	<p id="counter"></p>
     <div class="container">
     
@@ -26,13 +27,22 @@
         <div class="row">
             <div class="form-group">
                 <label for="code">Book Name</label>
-                <input id=UserSearch type="text" class="form-control input-lg">
+                <input id="UserSearch" type="text" class="form-control input-lg"/>
             </div>
         </div>
 
         <div class="row">
 			
-            <button type="button" class="btn btn-default">Search</button>
+            <button type="button" onclick="myFunction()" class="btn btn-default">Search</button>
+           
+            <script>
+function myFunction() {
+
+  var x = document.getElementById("UserSearch").value;
+  
+  document.getElementById("demo").innerHTML = "Searching for " + x + " Textbook. . . ";
+}
+</script>
         </div>
     </form>
 	</div>                      
