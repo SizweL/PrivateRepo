@@ -5,7 +5,7 @@ let mainRouter = express.Router();
 
 
 app.use(express.static(path.join(__dirname, 'js')));
-app.use("/js", search_path);
+
 
 // viewed at http://localhost:8080
 app.get('/', function(req, res) {
