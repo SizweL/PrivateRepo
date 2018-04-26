@@ -32,10 +32,17 @@
 
         <div class="row">
 			
-            <button type="button" class="btn btn-default">Search</button>
+            <button type="button" onclick= "UserSearch();"class="btn btn-default">Search</button>
         </div>
     </form>
-	</div>                      
+	</div>     
+
+	<script>	function UserSearch(){
+	const button = document.getElementById('UserInput');
+	button.addEventListener('click', function(e) {
+	  document.getElementById('counter').innerHTML = "Search for " + button + " Textbook";
+})
+}</script>
 		
 </body>
 </html>
