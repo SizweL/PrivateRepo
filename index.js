@@ -1,82 +1,55 @@
-const auth = require('basic-auth')
-const assert = require('assert')
+var express = require('express');
+var app=express();
+var bodyParser= require('body-parser');
 
-function ensureFunction(option, defaultValue) {
-    if(option == undefined)
-        return function() { return defaultValue }
-
-    if(typeof option != 'function')
-        return function() { return option }
-
-    return option
+var users=[
+{
+  name:"xxxx",
+  password:"xxxx"
+},
+{
+  name:"yyyy",
+  password:"yyyy"
 }
+]
+app.use( bodyParser.json() );
+app.use(bodyParser.urlencoded({     
+    extended: true
+}));
 
-function buildMiddleware(options) {
-    var challenge = options.challenge != undefined ? !!options.challenge : false
-    var users = options.users || {}
-    var authorizer = options.authorizer || staticUsersAuthorizer
-    var isAsync = options.authorizeAsync != undefined ? !!options.authorizeAsync : false
-    var getResponseBody = ensureFunction(options.unauthorizedResponse, '')
-    var realm = ensureFunction(options.realm)
+app.use(express.static('./')); 
 
-    assert(typeof users == 'object', 'Expected an object for the basic auth users, found ' + typeof users + ' instead')
-    assert(typeof authorizer == 'function', 'Expected a function for the basic auth authorizer, found ' + typeof authorizer + ' instead')
+app.get('/', (req,res)=>{
+    res.sendFile('index.html');
+});
 
-    function staticUsersAuthorizer(username, password) {
-        for(var i in users)
-            if(username == i && password == users[i])
-                return true
-
-        return false
+app.post('/login',(req,res)=>{
+    var message;
+    for(var user of users){
+      if(user.name!=req.body.name){
+          message="Wrong Name";
+      }else{
+          if(user.password!=req.body.password){
+              message="Wrong Password";
+              break;
+          }
+          else{
+              message="Login Successful";
+              break;
+          }         
+      }
     }
+    res.send(message);
+});
 
-    return function authMiddleware(req, res, next) {
-        var authentication = auth(req)
+app.post('/getusers',(req,res)=>{
+    var user_list=[]
+    users.forEach((user)=>{
+        user_list.push({"name":user.name});
+    })
+    res.send(JSON.stringify({users:user_list}));
+});
 
-        if(!authentication)
-            return unauthorized()
-
-        req.auth = {
-            user: authentication.name,
-            password: authentication.pass
-        }
-
-        if(isAsync)
-            return authorizer(authentication.name, authentication.pass, authorizerCallback)
-        else if(!authorizer(authentication.name, authentication.pass))
-            return unauthorized()
-
-        return next()
-
-        function unauthorized() {
-            if(challenge) {
-                var challengeString = 'Basic'
-                var realmName = realm(req)
-
-                if(realmName)
-                    challengeString += ' realm="' + realmName + '"'
-
-                res.set('WWW-Authenticate', challengeString)
-            }
-
-            //TODO: Allow response body to be JSON (maybe autodetect?)
-            const response = getResponseBody(req)
-
-            if(typeof response == 'string')
-                return res.status(401).send(response)
-
-            return res.status(401).json(response)
-        }
-
-        function authorizerCallback(err, approved) {
-            assert.ifError(err)
-
-            if(approved)
-                return next()
-
-            return unauthorized()
-        }
-    }
-}
-
-module.exports = buildMiddleware
+app.listen(3000, function(){
+  console.log('listening on port 3000');
+});
