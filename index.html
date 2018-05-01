@@ -45,6 +45,7 @@
         </div>
         <script type="text/javascript">
             auth= function(){
+			
                 var xhttp = new XMLHttpRequest();
                 data={name:document.getElementById("username").value,password:document.getElementById("password").value}
                 xhttp.onreadystatechange = function() {
@@ -56,7 +57,7 @@
                       document.getElementById("token-display").innerHTML=JSON.parse(xhttp.responseText).message;
                     }
                 };
-                xhttp.open("POST", "http://localhost:3000/login", true);
+                xhttp.open("POST", "http://localhost:3000", true);
                 xhttp.setRequestHeader("Content-type", 'application/json; charset=UTF-8');
                 xhttp.send(JSON.stringify(data));
             }
@@ -78,7 +79,7 @@
                       document.getElementById("list").innerHTML=JSON.parse(xhttp.responseText).message;
                     }
                 };
-                xhttp.open("POST", "http://localhost:3000/getusers", true);
+                xhttp.open("POST", "http://localhost:3000", true);
                 xhttp.setRequestHeader("Content-type", 'application/json; charset=UTF-8');
                 xhttp.send(JSON.stringify(data));
             }
