@@ -50,6 +50,6 @@ app.post('/getusers',(req,res)=>{
     res.send(JSON.stringify({users:user_list}));
 });
 
-app.listen(3000, function(){
+app.listen(process.env.PORT ||3000, function(){
   console.log('listening on port 3000');
 });
