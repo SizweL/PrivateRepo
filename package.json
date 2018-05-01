@@ -54,7 +54,7 @@
     "http"
   ],
   "license": "MIT",
-  "main": "index.js",
+  "main": "example.js",
   "name": "express-basic-auth",
   "repository": {
     "type": "git",
