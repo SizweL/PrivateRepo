@@ -57,7 +57,7 @@
                       document.getElementById("token-display").innerHTML=JSON.parse(xhttp.responseText).message;
                     }
                 };
-                xhttp.open("POST", "http://localhost:3000", true);
+                xhttp.open("POST", "http://sizwe.azurewebsites.net/login", true);
                 xhttp.setRequestHeader("Content-type", 'application/json; charset=UTF-8');
                 xhttp.send(JSON.stringify(data));
             }
@@ -79,7 +79,7 @@
                       document.getElementById("list").innerHTML=JSON.parse(xhttp.responseText).message;
                     }
                 };
-                xhttp.open("POST", "http://localhost:3000", true);
+                xhttp.open("POST", "http://sizwe.azurewebsites.net/getusers", true);
                 xhttp.setRequestHeader("Content-type", 'application/json; charset=UTF-8');
                 xhttp.send(JSON.stringify(data));
             }
