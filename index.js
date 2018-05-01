@@ -10,7 +10,7 @@ app.use(passport.initialize());
 
 app.use(cookieSession({
     name: 'session',
-    keys: ['oGvK9HGyPUH_iKnGNp8c5xl9'],
+    keys: [123],
     maxAge: 24 * 60 * 60 * 1000
 }));
 app.use(cookieParser());
