@@ -110,7 +110,7 @@ app.get('/realmfunction', realmFunctionAuth, function(req, res) {
     res.status(200).send('You passed')
 })
 
-app.listen(8080, function() {
+app.listen(process.env.PORT || 3000, function() {
     console.log("Listening!")
 })
 
