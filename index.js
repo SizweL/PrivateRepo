@@ -1,60 +1,82 @@
-const express = require('express'),
-    app = express(),
-    passport = require('passport'),
-    auth = require('./auth'),
-    cookieParser = require('cookie-parser'),
-    cookieSession = require('cookie-session');
-	var session = require('express-session');
+const auth = require('basic-auth')
+const assert = require('assert')
 
-auth(passport);
-app.use(passport.initialize());
+function ensureFunction(option, defaultValue) {
+    if(option == undefined)
+        return function() { return defaultValue }
 
+    if(typeof option != 'function')
+        return function() { return option }
 
-app.set('trust proxy', 1) // trust first proxy
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
-}))
+    return option
+}
 
-app.use(cookieParser());
+function buildMiddleware(options) {
+    var challenge = options.challenge != undefined ? !!options.challenge : false
+    var users = options.users || {}
+    var authorizer = options.authorizer || staticUsersAuthorizer
+    var isAsync = options.authorizeAsync != undefined ? !!options.authorizeAsync : false
+    var getResponseBody = ensureFunction(options.unauthorizedResponse, '')
+    var realm = ensureFunction(options.realm)
 
-app.get('/', (req, res) => {
-    if (req.session.token) {
-        res.cookie('token', req.session.token);
-        res.json({
-            status: 'session cookie set'
-        });
-    } else {
-        res.cookie('token', '')
-        res.json({
-            status: 'session cookie not set'
-        });
+    assert(typeof users == 'object', 'Expected an object for the basic auth users, found ' + typeof users + ' instead')
+    assert(typeof authorizer == 'function', 'Expected a function for the basic auth authorizer, found ' + typeof authorizer + ' instead')
+
+    function staticUsersAuthorizer(username, password) {
+        for(var i in users)
+            if(username == i && password == users[i])
+                return true
+
+        return false
     }
-});
 
-app.get('/logout', (req, res) => {
-    req.logout();
-    req.session = null;
-    res.redirect('/');
-});
+    return function authMiddleware(req, res, next) {
+        var authentication = auth(req)
 
-app.get('/auth/google', passport.authenticate('google', {
-    scope: ['https://www.googleapis.com/auth/userinfo.profile']
-}));
+        if(!authentication)
+            return unauthorized()
 
-app.get('/auth/google/callback',
-    passport.authenticate('google', {
-        failureRedirect: '/'
-    }),
-    (req, res) => {
-        console.log(req.user.token);
-        req.session.token = req.user.token;
-        res.redirect('/');
+        req.auth = {
+            user: authentication.name,
+            password: authentication.pass
+        }
+
+        if(isAsync)
+            return authorizer(authentication.name, authentication.pass, authorizerCallback)
+        else if(!authorizer(authentication.name, authentication.pass))
+            return unauthorized()
+
+        return next()
+
+        function unauthorized() {
+            if(challenge) {
+                var challengeString = 'Basic'
+                var realmName = realm(req)
+
+                if(realmName)
+                    challengeString += ' realm="' + realmName + '"'
+
+                res.set('WWW-Authenticate', challengeString)
+            }
+
+            //TODO: Allow response body to be JSON (maybe autodetect?)
+            const response = getResponseBody(req)
+
+            if(typeof response == 'string')
+                return res.status(401).send(response)
+
+            return res.status(401).json(response)
+        }
+
+        function authorizerCallback(err, approved) {
+            assert.ifError(err)
+
+            if(approved)
+                return next()
+
+            return unauthorized()
+        }
     }
-);
+}
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log('Server is running on port 3000');
-});
+module.exports = buildMiddleware
