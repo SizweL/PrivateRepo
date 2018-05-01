@@ -18,11 +18,6 @@ app.use(session({
   cookie: { secure: true }
 }))
 
-app.use(cookieSession({
-    name: 'session',
-    keys: [123],
-    maxAge: 24 * 60 * 60 * 1000
-}));
 app.use(cookieParser());
 
 app.get('/', (req, res) => {
