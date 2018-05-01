@@ -4,9 +4,19 @@ const express = require('express'),
     auth = require('./auth'),
     cookieParser = require('cookie-parser'),
     cookieSession = require('cookie-session');
+	var session = require('express-session');
 
 auth(passport);
 app.use(passport.initialize());
+
+
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
 
 app.use(cookieSession({
     name: 'session',
