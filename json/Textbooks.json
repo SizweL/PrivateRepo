@@ -1,0 +1,63 @@
+{
+
+"Textbooks" : [
+
+		{
+			"authorName" : "Cheng, DK",
+			"bookTitle" : "Field and Wave Electromagnetics",
+			"edition" : 2,
+			"publisher" : "Addison Wesley",
+			"relatedCourse" : "ELEN4001",
+			"relatedDegree" : "Electrical Engineering",
+			"bookId" : "1234",
+			"price" : "R1 500"
+		},
+		
+		{
+			"authorName" : "Kuffel, E; Zaengl, WS & Kuffel, J ",
+			"bookTitle" : "High Voltage Engineering: Fundamentals",
+			"publisher " : "B-H",
+			"edition" : 2,
+			"relatedCourse" : "ELEN4003",
+			"relatedDegree" : "Electrical Engineering",
+			"bookId" : "5678",
+			"price" : "R1 500"
+		},
+	
+		{
+			"authorName" : "Bentley, JP",
+			"bookTitle" : "Principles of Measurement Systems",
+			"publisher " : "Longman",
+			"edition" : 4,
+			"relatedCourse" : "ELEN4006",
+			"relatedDegree" : "Electrical Engineering",
+			"bookId" : "9101",
+			"price" : "R1 500"
+
+		},
+
+		{
+			"authorName" : "Burns, Roland S",
+			"bookTitle" : "Advanced Control Engineering",
+			"publisher" : " ",
+			"edition" : 1,
+			"relatedCourse" : "ELEN4016",
+			"relatedDegree" : "Electrical Engineering",
+			"bookId" : "1011",
+			"price" : "R1 500"
+
+		},
+
+		{
+			"authorName" : "Computer Network Fundamentals",
+			"bookTitle" : "Kurose, James F Ross, Keith W",
+			"publisher" : "Pearson",
+			"edition" : 5,
+			"relatedCourse" : "ELEN4017",
+			"relatedDegree" : "Electrical Engineering",
+			"bookId" : "1213",
+			"price" : "R1 500"
+
+		}
+			]
+}

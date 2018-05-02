@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Payment Option</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+<body>
+<div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Bantu Textbooks</a>
+</nav>
+</div>
+
+<h2>Payment Options</h2>
+
+
+<form action="/collect" method="post">
+<p>
+<div class="radio">
+  <label><input type="radio" name="location" value="11">Cash (Pay on collection)</label>
+</div>
+<div class="radio disabled">
+  <label><input type="radio" name="location" value="22"disabled>Card (currently unavailable)</label>
+</div>
+<div class="radio disabled">
+  <label><input type="radio" name="location" value="33" disabled>EFT(currently unavailable)</label>
+</div>
+</p>
+<button type="submit" class="btn btn-primary">Next</button>
+</form>
+
+</body>
+</html>

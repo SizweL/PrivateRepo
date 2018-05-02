@@ -1,16 +1,35 @@
 {
-  "name": "auth",
+  "name": "Group-3-Lab",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./test/todoLists_tape.js",
+    "start": "node index"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.3",
-    "jsonwebtoken": "^8.2.1"
-  }
+    "express": "^4.16.2",
+    "google-auth-library": "^1.4.0",
+    "googleapis": "^29.0.0",
+    "oauth": "^0.9.15",
+    "opn": "^5.3.0",
+    "url": "^0.11.0",
+	"jsonwebtoken": "^8.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1",
+    "tape": "^4.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/witseie-elen4010/Group-3-Lab.git"
+  },
+  "bugs": {
+    "url": "https://github.com/witseie-elen4010/Group-3-Lab/issues"
+  },
+  "homepage": "https://github.com/witseie-elen4010/Group-3-Lab#readme"
 }
