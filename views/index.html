@@ -2,9 +2,19 @@
 <html>
 
   <head>
+     <meta charset="UTF-8">
     <title>Demo: Getting an email address using the Google+ Sign-in button</title>
     <!-- Include the API client and Google+ client. -->
     <script src = "https://plus.google.com/js/client:platform.js" async defer></script>
+	 
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 	<div>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -19,7 +29,7 @@
     <div id="gConnect" class="button">
       <button class="g-signin"
           data-scope="email"
-          data-clientid= "405190501464-uhjth3212lclst6tpr3dljgj7c1852si.apps.googleusercontent.com";
+          data-clientid= "462872861060-mlg7rphnsu7i692ujnvauh3bpd1k6mrl.apps.googleusercontent.com";
           data-callback="onSignInCallback"
           data-theme="dark"
           data-cookiepolicy="single_host_origin">
