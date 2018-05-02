@@ -19,7 +19,7 @@ app.use('/cdn', express.static('json'));
 app.use('/cdn2', express.static('images'));
 
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/views/index.jshtml'));
+    res.sendFile(path.join(__dirname + '/views/index.html'));
 });
 
 app.listen(process.env.PORT || 3000);
