@@ -27,7 +27,7 @@ console.log("Express server running on port 3000");
 
 const OAuth2 = google.auth.OAuth2;
 
-var oauth2Client = new OAuth2("1071667068495-s0u1944ep3aol103in0d8pqfl8383f5c.apps.googleusercontent.com", "5ptbdJU4Mo96UtGYyt5mvzXn", "https://bantutextbooks.azurewebsites.net/search");
+var oauth2Client = new OAuth2("462872861060-mlg7rphnsu7i692ujnvauh3bpd1k6mrl.apps.googleusercontent.com", "2vsnc1dzPoycwbB-c4sRmtXh", "https://sizwe.azurewebsites.net/search");
 
 // generate a url that asks permissions for Google+ and Google Calendar scopes
 var scopes = [
