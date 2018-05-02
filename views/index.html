@@ -18,10 +18,9 @@
       <a class="navbar-brand" href="#">Bantu Textbooks</a>
 </nav>
 </div>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="jquery.js"></script>
 <script>
-
-		var OAUTHURL    =   'https://accounts.google.com/o/oauth2/auth?';
+        var OAUTHURL    =   'https://accounts.google.com/o/oauth2/auth?';
         var VALIDURL    =   'https://bantucoders.azurewebsites.net';
         var SCOPE       =   'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email';
         var CLIENTID    =   '405190501464-uhjth3212lclst6tpr3dljgj7c1852si.apps.googleusercontent.com';
@@ -34,7 +33,7 @@
         var expiresIn;
         var user;
         var loggedIn    =   false;
-        
+
         function login() {
             var win         =   window.open(_url, "windowname1", 'width=800, height=600'); 
 
@@ -83,23 +82,6 @@
                 dataType: "jsonp"
             });
         }
-		function init() {
-			gapi.load('auth2', function() { // Ready. });
-		}
-		params = {CLIENTID, OAUTHURL, VALIDURL, SCOPE, VALIDURL};
-		
-		
-		gapi.auth2.init(params);
-		
-		googleUser = GoogleAuth.currentUser.get();
-		
-		function onSignIn(googleUser) {
-		  var profile = googleUser.getBasicProfile();
-		  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-		  console.log('Name: ' + profile.getName());
-		  console.log('Image URL: ' + profile.getImageUrl());
-		  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
 
         //credits: http://www.netlobo.com/url_query_string_javascript.html
         function gup(url, name) {
