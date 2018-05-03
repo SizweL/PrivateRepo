@@ -1,20 +1,22 @@
 {
-  "name": "expresslab2",
+  "name": "privaterepo",
   "version": "1.0.0",
-  "description": "using npm with javascript",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node ./test/todoLists_tape.js",
-    "start": "node index"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SizweL/PrivateRepo.git"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.16.2"
+  "bugs": {
+    "url": "https://github.com/SizweL/PrivateRepo/issues"
   },
-  "devDependencies": {
-    "chai": "^4.1.2",
-    "mocha": "^5.1.1",
-    "tape": "^4.9.0"
+  "homepage": "https://github.com/SizweL/PrivateRepo#readme",
+  "dependencies": {
+    "express": "^4.16.3"
   }
 }
