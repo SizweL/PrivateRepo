@@ -4,7 +4,7 @@
   "description": "using npm with javascript",
   "main": "index.js",
   "scripts": {
-    "test": "node ./test/todoLists_tape.js",
+    "test": "mocha",
     "start": "node index"
   },
   "author": "",

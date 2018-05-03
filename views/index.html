@@ -1,63 +1,26 @@
+<!DOCTYPE html>
+
+
 <html>
-
-  <head>
-    <title>Demo: Getting an email address using the Google+ Sign-in button</title>
-    <!-- Include the API client and Google+ client. -->
-	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
-    <script src = "https://plus.google.com/js/client:platform.js" async defer></script>
+	<head>
+		<title>Todo List</title>
+		<meta charset="utf=8"/>
+		<script src="/cdn/libraries/jquery.js"></script><!-- the jQuery library-->  <script src="/cdn/scripts/todo/index.js"></script><!-- Our JavaScript 8 code for this page--> 
+		<link rel="stylesheet" href="/cdn/css/bootstrap.css">
+		
+	</head>
 	
-  </head>
-
-  <body>
-    <!-- Container with the Sign-In button. -->
-    <div id="gConnect" class="button">
-      <button class="g-signin"
-          data-scope="email"
-          data-clientid="462872861060-mlg7rphnsu7i692ujnvauh3bpd1k6mrl.apps.googleusercontent.com"
-          data-callback="onSignInCallback"
-          data-theme="dark"
-          data-cookiepolicy="single_host_origin">
-      </button>
-      <!-- Textarea for outputting data -->
-      <div id="response" class="hide">
-        <textarea id="responseContainer" style="width:100%; height:150px"></textarea>
-      </div>
-    </div>
- </body>
-
-  <script>
-  /**
-   * Handler for the signin callback triggered after the user selects an account.
-   */
-  function onSignInCallback(resp) {
-    gapi.client.load('plus', 'v1', apiClientLoaded);
-  }
-
-  /**
-   * Sets up an API call after the Google API client loads.
-   */
-  function apiClientLoaded() {
-    gapi.client.plus.people.get({userId: 'me'}).execute(handleEmailResponse);
-  }
-
-  /**
-   * Response callback for when the API client receives a response.
-   *
-   * @param resp The API response object with the user email and profile information.
-   */
-  function handleEmailResponse(resp) {
-    var primaryEmail;
-    for (var i=0; i < resp.emails.length; i++) {
-      if (resp.emails[i].type === 'account') primaryEmail = resp.emails[i].value;
-    }
-    //document.getElementById('responseContainer').value = 'Primary email: ' +
-        //primaryEmail + '\n\nFull Response:\n' + JSON.stringify(resp);
-		var Data = JSON.stringify(resp);
-		var myObj = JSON.parse(Data);
-
-		document.getElementById("responseContainer").innerHTML = "Welcome " + myObj.displayName + " Create your new shopping list";
-  }
-
-  </script>
-
+	<body>
+		<h1 class="jumbotron text-center">Stuff to do</h1>
+		<ol id="todoList">
+		
+		</ol>
+		 Add a new todo:
+		 <input type="text" id="newTodoInput"></input> 
+		<button  class="btn btn-primary" type="button" id="addTodoButton">Add</button>
+		
+		<script src="/cdn/scripts/todo/index.js"></script>
+	
+	</body>
+	
 </html>
