@@ -52,8 +52,10 @@
     }
     //document.getElementById('responseContainer').value = 'Primary email: ' +
         //primaryEmail + '\n\nFull Response:\n' + JSON.stringify(resp);
-		Name = resp.giveName;
-		Surname = resp.familyName;
+		var Data = JSON.stringify(resp);
+		var myObj = JSON.parse(Data);
+		var Name = myObj.giveName;
+		var Surname = myObj.familyName;
 		document.getElementById("responseContainer").value = "Hello" + " " + Name + " " + Surname;
   }
 
