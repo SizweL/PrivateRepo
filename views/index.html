@@ -54,9 +54,8 @@
         //primaryEmail + '\n\nFull Response:\n' + JSON.stringify(resp);
 		var Data = JSON.stringify(resp);
 		var myObj = JSON.parse(Data);
-		var Name = myObj.giveName;
-		var Surname = myObj.familyName;
-		document.getElementById("responseContainer").value = "Hello" + " " + Name + " " + Surname;
+
+		document.getElementById("responseContainer").innerHTML = "Hello" + " " + myObj.givenName + " " + myObj.familyName;
   }
 
   </script>
