@@ -19,13 +19,13 @@ var Quantity = [];
 
 //post route for adding new task 
 app.post("/addtask", function(req, res) {
-    var newTask = req.body.newtask;
+   // var newTask = req.body.newtask;
 	var newPrice = req.body.price;
-	var newQuantity = req.body.size;
+	//var newQuantity = req.body.size;
     //add the new task from the post route
-    task.push(newTask);
+   // task.push(newTask);
 	PriceEstimate.push(newPrice);
-	Quantity.push(newQuantity);
+	//Quantity.push(newQuantity);
     res.redirect("/");
 });
 
