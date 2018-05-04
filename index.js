@@ -13,16 +13,25 @@ var task = [];
 //placeholders for removed task
 var complete = [];
 
+var PriceEstimate = [];
+
+var Quantity = [];
+
 //post route for adding new task 
 app.post("/addtask", function(req, res) {
     var newTask = req.body.newtask;
+	var newPrice = req.body.price;
+	var newQuantity = req.body.size;
     //add the new task from the post route
     task.push(newTask);
+	PriceEstimate.push(newPrice);
+	Quantity.push(newQuantity);
     res.redirect("/");
 });
 
 app.post("/removetask", function(req, res) {
     var completeTask = req.body.check;
+	
     //check for the "typeof" the different completed task, then add into the complete task
     if (typeof completeTask === "string") {
         complete.push(completeTask);
