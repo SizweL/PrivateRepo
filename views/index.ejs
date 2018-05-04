@@ -31,8 +31,8 @@
 
 <h2> Shopping List Items </h2>
 
-<% for( var i = 0; i < task.length; i++){ %>
-    <li><input type="checkbox" name="check" value="<%= task[i] %>" /> <%= task[i] %> </li>
+<% for( var i = 0; i < Quantity.length; i++){ %>
+    <li><input type="checkbox" name="check" value="<%= Quantity[i] %>" /> <%= Quantity[i] %> </li>
 <% } %>
 
 <button formaction="/removetask" type="submit" id="top"> Remove </button>
