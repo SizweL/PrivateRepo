@@ -24,15 +24,15 @@
 <form action ="/addtask" method="POST">
 
 <input type="text" name="newtask" placeholder="add new grocery item">
-<input type="text" name="newPrice" placeholder="Price Estimate">
-<input type="text" name="newQuantity" placeholder="Quantity">
+<input type="text" name="price" placeholder="Price Estimate">
+<input type="text" name="size" placeholder="Quantity">
 <button> Add Item </button>
 
 
 <h2> Shopping List Items </h2>
 
 <% for( var i = 0; i < task.length; i++){ %>
-    <li><input type="checkbox" name="check" value="<%= task[i] %>" /> <%= task[i] %> </li>
+    <li><input type="checkbox" name="check" value="<%= task[i] + " " + PriceEstimate[i] + " " + Quantity[i] %>" /> <%= task[i] + " " + PriceEstimate[i] + " " + Quantity[i] %> </li>
 <% } %>
 
 <button formaction="/removetask" type="submit" id="top"> Remove </button>
@@ -45,6 +45,6 @@
 <% } %>
 
 </div>
-<script src="/cdn/js/Add-and-Remove.js"></script>
+
 </body>
 </html>
