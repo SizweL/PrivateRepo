@@ -11,7 +11,7 @@
 <div class="container">
 <h2> Create Your Shopping Lists </h2>
 
-<form action ="/addtask" method="POST">
+<form action ="/addGroceryList" method="POST">
 
 <input type="text" name="newGroceryList" placeholder="add new grocery item">
 <button> Add Item </button>
@@ -23,7 +23,7 @@
     <li><input type="checkbox" name="check" value="<%= task[i] %>" /> <%= task[i] %> </li>
 <% } %>
 
-<button formaction="/removetask" type="submit" id="top"> Remove </button>
+<button formaction="/removeGroceryList" type="submit" id="top"> Remove </button>
 </form>
 
 <h2> Removed List Items </h2>
