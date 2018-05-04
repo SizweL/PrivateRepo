@@ -15,7 +15,7 @@ var complete = [];
 
 //var PriceEstimate = [];
 
-//var Quantity = [];
+var Quantity = [];
 
 //post route for adding new task 
 app.post("/addtask", function(req, res) {
