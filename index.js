@@ -14,10 +14,6 @@ app.get('/', function (req, res) {
   res.render('index');
 });
 
-app.post('/addtask', function (req, res) {
-   res.render('index')
-});
-
 //the task array with initial placeholders for added task
 var task = ["buy socks", "practise with nodejs"];
 //post route for adding new task

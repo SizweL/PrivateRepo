@@ -9,7 +9,10 @@
      <h2> Bantu Shopping List </h2>
 <form action ="/addtask" method="POST">
        <input type="text" name="newtask" placeholder="add new shopping item">        <button> Add Item </button>
-    <h2> Added Grocery Item </h2>
+    <h2> Added Task </h2>
+   <% for( var i = 0; i < task.length; i++){ %>
+<li><input type="checkbox" name="check" value="<%= task[i] %>" /> <%= task[i] %> </li>
+	<% } %>
 <button formaction="/removetask" type="submit"> Remove </button>
 </form>
     <h2> Complete Shopping List </h2>
