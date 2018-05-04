@@ -8,38 +8,38 @@ app.set("view engine", "ejs");
 //render css files
 app.use(express.static("public"));
 
-//placeholders for added task
-var task = [];
-//placeholders for removed task
-var complete = [];
+//placeholders for added GroceryList
+var GroceryList = [];
+//placeholders for removed GroceryList
+var Removed = [];
 
-//post route for adding new task 
-app.post("/addtask", function(req, res) {
-    var newTask = req.body.newtask;
-    //add the new task from the post route
-    task.push(newTask);
+//post route for adding new GroceryList 
+app.post("/addGroceryList", function(req, res) {
+    var newGroceryList = req.body.newGroceryList;
+    //add the new GroceryList from the post route
+    GroceryList.push(newGroceryList);
     res.redirect("/");
 });
 
-app.post("/removetask", function(req, res) {
-    var completeTask = req.body.check;
-    //check for the "typeof" the different completed task, then add into the complete task
-    if (typeof completeTask === "string") {
-        complete.push(completeTask);
-        //check if the completed task already exits in the task when checked, then remove it
-        task.splice(task.indexOf(completeTask), 1);
-    } else if (typeof completeTask === "object") {
-        for (var i = 0; i < completeTask.length; i++) {
-            complete.push(completeTask[i]);
-            task.splice(task.indexOf(completeTask[i]), 1);
+app.post("/removeGroceryList", function(req, res) {
+    var RemovedGroceryList = req.body.check;
+    //check for the "typeof" the different Removedd GroceryList, then add into the Removed GroceryList
+    if (typeof RemovedGroceryList === "string") {
+        Removed.push(RemovedGroceryList);
+        //check if the Removedd GroceryList already exits in the GroceryList when checked, then remove it
+        GroceryList.splice(GroceryList.indexOf(RemovedGroceryList), 1);
+    } else if (typeof RemovedGroceryList === "object") {
+        for (var i = 0; i < RemovedGroceryList.length; i++) {
+            Removed.push(RemovedGroceryList[i]);
+            GroceryList.splice(GroceryList.indexOf(RemovedGroceryList[i]), 1);
         }
     }
     res.redirect("/");
 });
 
-//render the ejs and display added task, completed task
+//render the ejs and display added GroceryList, Removedd GroceryList
 app.get("/", function(req, res) {
-    res.render("index", { task: task, complete: complete });
+    res.render("index", { GroceryList: GroceryList, Removed:Removed  });
 });
 
 //set app to listen on port 3000
