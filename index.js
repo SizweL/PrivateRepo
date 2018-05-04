@@ -25,7 +25,7 @@ app.post("/addtask", function(req, res) {
     //add the new task from the post route
     task.push(newTask);
 	//PriceEstimate.push(newPrice);
-	//Quantity.push(newQuantity);
+	Quantity.push(newQuantity);
     res.redirect("/");
 });
 
