@@ -15,7 +15,7 @@ var Removed = [];
 
 //post route for adding new GroceryList 
 app.post("/addGroceryList", function(req, res) {
-    var newGroceryList = req.body.newGroceryList;
+    var newGroceryList = req.body.newgroceryList;
     //add the new GroceryList from the post route
     GroceryList.push(newGroceryList);
     res.redirect("/");
