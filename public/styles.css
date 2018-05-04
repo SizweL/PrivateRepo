@@ -3,9 +3,14 @@
     font-weight: bold;
 }
 
+h2 {
+	
+	color: black;
+	
+}
+
 body {
     background-color: white;
-    color: #333333;
     margin-top: 20px;
 }
 
