@@ -13,19 +13,19 @@ var task = [];
 //placeholders for removed task
 var complete = [];
 
-//var PriceEstimate = [];
+var PriceEstimate = [];
 
-var quantity = [];
+var Quantity = [];
 
 //post route for adding new task 
 app.post("/addtask", function(req, res) {
-    //var newTask = req.body.price;
-	//var newPrice = req.body.price;
+    var newTask = req.body.newtask;
+	var newPrice = req.body.price;
 	var newQuantity = req.body.size;
     //add the new task from the post route
-   // task.push(newTask);
-	////PriceEstimate.push(newPrice);
-	quantity.push(newQuantity);
+    task.push(newTask);
+	PriceEstimate.push(newPrice);
+	Quantity.push(newQuantity);
     res.redirect("/");
 });
 
@@ -48,7 +48,7 @@ app.post("/removetask", function(req, res) {
 
 //render the ejs and display added task, completed task
 app.get("/", function(req, res) {
-    res.render("index", { task: task, quantity:quantity, complete: complete });
+    res.render("index", { task: task, PriceEstimate:PriceEstimate, Quantity:Quantity complete: complete });
 });
 
 //set app to listen on port 3000
