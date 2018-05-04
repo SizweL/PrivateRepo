@@ -23,16 +23,15 @@
 
 <form action ="/addtask" method="POST">
 
-<input type="text" name="newtask" placeholder="add new grocery item">
-<input type="text" name="price" placeholder="Price Estimate">
+
 <input type="text" name="size" placeholder="Quantity">
 <button> Add Item </button>
 
 
 <h2> Shopping List Items </h2>
 
-<% for( var i = 0; i < PriceEstimate.length; i++){ %>
-    <li><input type="checkbox" name="check" value="<%= PriceEstimate[i]%>" /><%= PriceEstimate[i]%></li>
+<% for( var i = 0; i < Quantity.length; i++){ %>
+    <li><input type="checkbox" name="check" value="<%= Quantity[i]%>" /><%= Quantity[i]%></li>
 <% } %>
 
 <button formaction="/removetask" type="submit" id="top"> Remove </button>
