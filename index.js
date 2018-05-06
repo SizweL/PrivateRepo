@@ -1,55 +1,50 @@
-const express = require('express'),
-    app = express(),
-    passport = require('passport'),
-    auth = require('./auth'),
-    cookieParser = require('cookie-parser'),
-    cookieSession = require('cookie-session');
+//dependencies required for the app
+var express = require("express");
+var bodyParser = require("body-parser");
+var app = express();
+var actions = require('./js/actions');
 
-auth(passport);
-app.use(passport.initialize());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.set("view engine", "ejs");
+//render css files
+app.use(express.static("public"));
 
-app.use(cookieSession({
-    name: 'session',
-    keys: [123],
-    maxAge: 24 * 60 * 60 * 1000
-}));
-app.use(cookieParser());
+//placeholders for added task
+var task = [];
+var PriceEstimate = [];
+var Quantity = [];
+var complete = [];
 
-app.get('/', (req, res) => {
-    if (req.session.token) {
-        res.cookie('token', req.session.token);
-        res.json({
-            status: 'session cookie set'
-        });
-    } else {
-        res.cookie('token', '')
-        res.json({
-            status: 'session cookie not set'
-        });
-    }
+
+
+//post route for adding new task 
+app.post("/addtask", function(req, res) {
+    let newTask = req.body.newtask;
+	let newPrice = req.body.price;
+	let newQuantity = req.body.size;
+    //add the new task from the post route
+    actions.add(newTask,newPrice,newQuantity);
+    res.redirect("/");
 });
 
-app.get('/logout', (req, res) => {
-    req.logout();
-    req.session = null;
-    res.redirect('/');
+app.post("/removetask", function(req, res) {
+    var completeTask = req.body.check;
+	
+    //check for the "typeof" the different completed task, then add into the complete task
+    actions.remove(completeTask);
+    res.redirect("/");
 });
 
-app.get('/auth/google', passport.authenticate('google', {
-    scope: ['https://www.googleapis.com/auth/userinfo.profile']
-}));
+//render the ejs and display added task, completed task
+app.get("/", function(req, res) {
+	task = actions.getTask();
+	PriceEstimate = actions.getPrice();
+	Quantity = actions.getQuantity();
+	complete = actions.getComplete();
+    res.render("index", { task: task, PriceEstimate:PriceEstimate, Quantity:Quantity, complete: complete });
+});
 
-app.get('/auth/google/callback',
-    passport.authenticate('google', {
-        failureRedirect: '/'
-    }),
-    (req, res) => {
-        console.log(req.user.token);
-        req.session.token = req.user.token;
-        res.redirect('/');
-    }
-);
-
-app.listen(process.env.PORT || 3000, () => {
-    console.log('Server is running on port 3000');
+//set app to listen on port 3000
+app.listen(process.env.PORT || 3000, function() {
+    console.log("server is running on port 3000");
 });

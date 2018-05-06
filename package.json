@@ -1,31 +1,27 @@
 {
-  "name": "express-passport-google-oauth-exmple",
+  "name": "expresslab2",
   "version": "1.0.0",
-  "description": "example of Express + Google OAuth app",
-  "main": "server.js",
+  "description": "using npm with javascript",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "start": "node index"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bognix/express-passport-google-oauth-exmple.git"
-  },
-  "keywords": [
-    "express",
-    "passport",
-    "google-oauth"
-  ],
-  "author": "Bogna 'bognix' Knychala",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/bognix/express-passport-google-oauth-exmple/issues"
-  },
-  "homepage": "https://github.com/bognix/express-passport-google-oauth-exmple#readme",
   "dependencies": {
-    "cookie-parser": "^1.4.3",
-    "cookie-session": "^2.0.0-beta.3",
-    "express": "^4.16.3",
-    "passport": "^0.3.2",
-    "passport-google-oauth": "^1.0.0"
+    "ejs": "^2.5.9",
+    "express": "^4.16.2",
+    "mongodb": "^3.0.7"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "mocha": "^5.1.1",
+    "tape": "^4.9.0",
+    "tape-eslint": "^1.2.1"
   }
 }
