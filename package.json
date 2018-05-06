@@ -4,26 +4,18 @@
   "description": "using npm with javascript",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
     "test": "mocha",
-=======
-    "test": "node ./test/todoLists_tape.js",
->>>>>>> 515dff85efa33a19c1c1dd38cbd37abf6a327a59
     "start": "node index"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
     "ejs": "^2.5.9",
-=======
->>>>>>> 515dff85efa33a19c1c1dd38cbd37abf6a327a59
     "express": "^4.16.2",
     "mongodb": "^3.0.7"
   },
   "devDependencies": {
     "chai": "^4.1.2",
-<<<<<<< HEAD
     "eslint": "^4.19.1",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-node": "^6.0.1",
@@ -31,9 +23,5 @@
     "mocha": "^5.1.1",
     "tape": "^4.9.0",
     "tape-eslint": "^1.2.1"
-=======
-    "mocha": "^5.1.1",
-    "tape": "^4.9.0"
->>>>>>> 515dff85efa33a19c1c1dd38cbd37abf6a327a59
   }
 }
