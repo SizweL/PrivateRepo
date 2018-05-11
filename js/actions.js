@@ -3,8 +3,84 @@ var task = [];
 var complete = [];
 
 var PriceEstimate = [];
-
+var user_arr = [];
+var pass_arr = [];
 var Quantity = [];
+var st = [1];
+var fs = require('fs');
+var session = require('express-session');
+
+//var cookieParser = require('cookie-parser');
+
+	function statusAdd(st)
+	{
+		st.push(1);
+	}
+	
+	function setUsername(user,u)
+	{
+		user.push(u);
+	}
+	
+	function setPassword(pass,p)
+	{
+		pass.push(p);
+	}
+	
+	function getUser(user)
+	{
+		return user[0];
+	}
+	
+	function getPass(pass)
+	{
+		return pass[0];
+	}
+
+	function add_user(_name,_surname,_username,_password) {
+		fs.readFile('json/users.json', 'utf8', function readFileCallback(err, data){
+			if (err){
+				console.log(err);
+			} else {
+			var obj = JSON.parse(data); //now it an object
+			obj.users.push({FirstName: _name, LastName:_surname,UserName: _username,Password: _password}); //add some data
+			json = JSON.stringify(obj); //convert it back to json
+			fs.writeFile('json/users.json', json); // write it back 
+		}});
+		//var user = '{"firstName":_name, "lastName":surname, "username":_username, "password":_password}';
+		//var obj = JSON.parse(user);
+	}
+	
+	function login(_username,_password) {
+		//var status = [];
+		setUsername(user_arr,_username);
+		setPassword(pass_arr,_password);
+		fs.readFile('json/users.json', 'utf8', function readFileCallback(err, data){
+			if (err){
+				console.log(err);
+			} else {
+			var obj = JSON.parse(data); //now it an object
+			let user = obj.users;
+			for (var i = 0; i<obj.users.length; i++)
+			{
+				if (user_arr[0]==user[i].UserName && pass_arr[0]==user[i].Password)
+				{
+					
+				}
+			}
+			
+		}});
+		//var user = '{"firstName":_name, "lastName":surname, "username":_username, "password":_password}';
+		//var obj = JSON.parse(user);
+		var x = 0;
+		for (var i = 0; i<10000; i++)
+		{
+			x++;
+		}
+		console.log(st.length);
+		if (st.length > 1) status.push(1);
+		return
+	}
 
 	function add(_task,price_estimate,quantity) {
 		 task.push(_task);
@@ -53,3 +129,5 @@ var Quantity = [];
 	module.exports.getPrice = getPrice;
 	module.exports.getQuantity = getQuantity;
 	module.exports.getTask = getTask;
+	module.exports.add_user = add_user;
+	module.exports.login = login;
