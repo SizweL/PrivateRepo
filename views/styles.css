@@ -1,39 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Averia+Serif+Libre|Bubblegum+Sans|Caveat+Brush|Chewy|Lobster+Two');
-h2 {
-	
-	color: red;
-	font-weight: bold;
-	
-}
-
-body {
-    background-color: white;
-    margin-top: 20px;
-}
-
-.container {
-    display: block;
-    width: 400px;
-    margin: 0 auto;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-}
-
-
-
-body {
-    width: 100%;
-    height: 100%;
-}
-
-html {
-    width: 100%;
-    height: 100%;
-}
-
 * ===== NAVIGATION ======*/
 .navbar {
     border: 0;
