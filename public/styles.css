@@ -1,8 +1,4 @@
-* {
-    font-family: "lato", sans-serif;
-    font-weight: bold;
-}
-
+@import url('https://fonts.googleapis.com/css?family=Averia+Serif+Libre|Bubblegum+Sans|Caveat+Brush|Chewy|Lobster+Two');
 h2 {
 	
 	color: red;
@@ -26,7 +22,6 @@ ul {
     padding: 0;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Averia+Serif+Libre|Bubblegum+Sans|Caveat+Brush|Chewy|Lobster+Two');
 
 
 body {
