@@ -15,7 +15,9 @@ html {
 .navbar {
     border: 0;
     z-index: 9999;
-    letter-spacing: 4px;
+    letter-spacing: 4px; 
+    background-color: black;
+    
 
 }
 .logo {
@@ -30,6 +32,8 @@ html {
   height: 100%;
   padding: 15px; /* firefox bug fix */
   width: auto;
+   background-color: black;
+color: black !important;
 }
 .navbar .nav > li > a {
   line-height: 50px;
@@ -39,12 +43,16 @@ html {
     letter-spacing: 1px;
     color: white !important;
     font-family: 'Lobster Two', cursive;
+    background-color: black
+  
 }
 
 .navbar li a, .navbar {
     color: black !important;
     font-size: 12px;
     transition: all 0.6s 0s;
+     background-color: black;
+
 }
 
 .navbar-toggle {
@@ -53,6 +61,6 @@ html {
 }
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
-    color: red !important;
+    color: black !important;
 }
 
