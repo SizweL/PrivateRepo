@@ -33,7 +33,10 @@ html {
     border: 0;
     z-index: 9999;
     letter-spacing: 4px; 
-    background-color: black;
+    background-image: url('Midnight.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     
 
 }
@@ -71,17 +74,26 @@ color: black !important;
     color: black !important;
     font-size: 12px;
     transition: all 0.6s 0s;
-     background-color: black;
+     background-image: url('Midnight.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 
 .navbar-toggle {
-    background-color: black !important;
+    background-image: url('Midnight.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     border: 0;
 }
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
-    color: black !important;
+    background-image: url('Midnight.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .btn-primary {
     
