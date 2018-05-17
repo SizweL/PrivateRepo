@@ -60,7 +60,10 @@ color: black !important;
     letter-spacing: 1px;
     color: white !important;
     font-family: 'Lobster Two', cursive;
-    background-color: black
+    background-image: url('Midnight.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   
 }
 
