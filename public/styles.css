@@ -6,6 +6,10 @@ body {
     height: 100%;
     margin: 0px auto;
      text-align: center;
+    background-image: url("index.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 
@@ -17,7 +21,7 @@ html {
 .buttons{
     
     margin-top: 300px;
-    width: 300%;
+    width: 150%;
     height: 100%;
     text-align: center;
 
@@ -77,10 +81,10 @@ color: black !important;
 }
 .btn-primary {
     
-width: 300%;
+width: 150%;
 
 }
  .btn-success {
      
-     width:300%;
+     width:150%;
  }
