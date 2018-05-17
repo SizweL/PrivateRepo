@@ -13,6 +13,15 @@ html {
     height: 100%;
 }
 
+.buttons{
+    
+    margin-top: 30px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+}
+
 * ===== NAVIGATION ======*/
 .navbar {
     border: 0;
