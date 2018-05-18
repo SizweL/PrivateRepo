@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Averia+Serif+Libre|Bubblegum+Sans|Caveat+Brush|Chewy|Lobster+Two');
+
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px auto;
+     text-align: center;
+    background-image: url('Zinc.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+.forms{
+    
+    margin-top: 180px;
+    
+    height: 10%;
+    text-align: center;
+
+}
+
+* ===== NAVIGATION ======*/
+.navbar {
+    border: 0;
+    z-index: 9999;
+    letter-spacing: 4px; 
+    background-image: url('Midnight.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+
+}
+.logo {
+    display: block;
+    height: auto;
+    width: 52px;
+    padding-top: 5px;
+    margin-right: 400px;
+}
+
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px; /* firefox bug fix */
+  width: auto;
+  background-image: url('Midnight.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.navbar .nav > li > a {
+  line-height: 50px;
+}
+
+.navbar-header h1 {
+    letter-spacing: 1px;
+    color: white !important;
+    font-family: 'Lobster Two', cursive;
+    background-image: url('Midnight.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+}
+
+.navbar li a, .navbar {
+    color: black !important;
+    font-size: 12px;
+    transition: all 0.6s 0s;
+     background-image: url('Midnight.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.navbar-toggle {
+    background-image: url('Midnight.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    background-image: url('Midnight.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.btn-primary {
+    
+width: 10%;
+
+}
+ .btn-success {
+     
+     width:10%;
+ }
