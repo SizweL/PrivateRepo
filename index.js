@@ -127,7 +127,11 @@ app.post("/store", function(req, res) {
 	let username = req.body.username;
 	let password = req.body.password;
 	var list = shop_functs.getItemList();
-	var obj = JSON.parse(data); //now it an object
+	fs.readFile('json/users.json', 'utf8', function readFileCallback(err, data){
+			if (err){
+				console.log(err);
+			} else {
+			var obj = JSON.parse(data); //now it an object
 			let user = obj.users;
 			console.log("getting to store post");
 			let status = 0;
@@ -141,8 +145,11 @@ app.post("/store", function(req, res) {
 				}
 				
 			}
+			if (status == 0)	res.redirect("/list");
+		}});
 	
-     res.redirect("/list");
+     res.redirect("/list");	 
+	 
 });
 
 //render index page
