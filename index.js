@@ -124,31 +124,7 @@ app.get("/save", function(req, res) {
 });
 
 app.post("/store", function(req, res) {
-	let username = req.body.username;
-	let password = req.body.password;
-	var list = shop_functs.getItemList();
-	fs.readFile('json/users.json', 'utf8', function readFileCallback(err, data){
-			if (err){
-				console.log(err);
-			} else {
-			var obj = JSON.parse(data); //now it an object
-			let user = obj.users;
-			console.log("getting to store post");
-			let status = 0;
-			user.NewField = 'SavedList';
-			for (var i = 0; i<obj.users.length; i++)
-			{
-				console.log("getting to for loop");
-				if(username == user[i].UserName && password==user[i].Password){
-					console.log("finding match");
-					user[i].SavedList = list;
-				}
-				
-			}
-			if (status == 0)	res.redirect("/list");
-		}});
-	
-     res.redirect("/list");	 
+
 	 
 });
 
