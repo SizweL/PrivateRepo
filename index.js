@@ -122,10 +122,7 @@ app.get("/save", function(req, res) {
     res.sendFile(path.join(__dirname, 'views', 'save.html'));
 });
 
-app.post("/store", function(req, res) {
 
-	 
-});
 
 //render index page
 app.get("/", function(req, res) {
