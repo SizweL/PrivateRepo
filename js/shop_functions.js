@@ -98,4 +98,4 @@ function getItemList(){
 }
 
 module.exports = quantity;
-module.exports.getItemList = list;
+module.exports.getItemList = getItemList;
