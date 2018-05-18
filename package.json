@@ -4,6 +4,7 @@
   "description": "using npm with javascript",
   "main": "index.js",
   "scripts": {
+  "pretest": "eslint --ignore-path .gitignore .",
     "test": "mocha",
     "start": "node index"
   },

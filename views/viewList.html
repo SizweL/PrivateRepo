@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Bantu</title>
+    <meta name="description" content="Oishii - Fine Japanese Cuisine ">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/friends.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#myNavbar">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+           
+          
+         <div class="navbar-left logo"> 
+       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 291 385.3" style="enable-background:new 0 0 291 385.3;" xml:space="preserve">
+
+          </div>
+    <h1 class="brand brand-name navbar-left"><div class"navbar-left">Shared List</h1>
+        </div>
+		
+ 
+    </div>
+</nav>
+  <link rel="stylesheet" type="text/css" href="styles2.css" />
+
+</head>
+<body>
+<br><br><br><br>
+<h2 id="head"></h2><br><br>
+<div id="list"></div>
+</body>
+</html>
+
+<script>
+    var xhr = new XMLHttpRequest();
+	xhr.open("GET", "list.json", true);
+	let requestErrorFunc = function() {
+ alert( "ERROR: failed to load todoList" );
+ };
+    xhr.onload = function() {
+       
+       if (xhr.status >= 200 && xhr.status < 400) {     
+	    var x = document.createElement("ol");
+		x.setAttribute("id", "items");
+		var element = document.getElementById("list");
+		//var element2 = document.getElementById("head");
+		element.appendChild(x);
+		var obj = JSON.parse(xhr.responseText);
+		document.getElementById('head').innerHTML = "Author " + obj.FirstName + " " + obj.LastName;
+		obj.List.forEach(function(item){
+				var t = document.createTextNode(item+" ");
+				element.appendChild(t);
+				//document.getElementById('list').innerHTML = item+"<br><br>";
+			});
+			
+    }
+	else {
+		requestErrorFunc();
+	}
+    
+	
+		
+	
+}
+xhr.send();
+</script>
