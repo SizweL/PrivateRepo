@@ -67,14 +67,14 @@
 <% } %>
 <br><br>
 <div id='saving'>
-<form action="/store" id = "save_form" method="post">
-<button type="button" id="save" >Save list</button>
+
+<button formaction="/store" type="submit" id="save">Save list</button>
 
 
 </div>
 <div id='sharing'>
-
-<button formaction="/share" type="submit" id="share" >Share list</button>
+<form action="/share" id = "share_form" method="post">
+<button type="button" id="share" onclick="showFriends()">Share list</button>
 
 </form>
 </div>
