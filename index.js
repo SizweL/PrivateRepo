@@ -3,6 +3,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
 var actions = require('./js/actions');
+var shop_functs = require('./js/shop_functions');
 let path = require('path');
 //var session = require('express-session');
 var fs = require('fs');
@@ -26,7 +27,7 @@ var task = [];
 var PriceEstimate = [];
 var Quantity = [];
 var complete = [];
-
+let username = '';
 function createSessId(req,res,username)
 {
 	//req.session.put('user', username);
@@ -81,7 +82,7 @@ app.post("/share", function(req, res) {
 
 //post route for login submission
 app.post("/login-submit", function(req, res) {
-    let username = req.body.username;
+    username = req.body.username;
 	let password = req.body.password;
     //add the new user
     //actions.login(username,password);
@@ -115,14 +116,41 @@ app.get("/list", function(req, res) {
 	PriceEstimate = actions.getPrice();
 	Quantity = actions.getQuantity();
 	complete = actions.getComplete();
-    res.render("list", { task: task, PriceEstimate:PriceEstimate, Quantity:Quantity, complete: complete });
+    res.render("list", {task: task, PriceEstimate:PriceEstimate, Quantity:Quantity, complete: complete});
 });
 
 app.get("/save", function(req, res) {
     res.sendFile(path.join(__dirname, 'views', 'save.html'));
 });
 
+app.post("/store", function(req, res) {
 
+	var list = shop_functs.getItemList(task);
+	fs.readFile('json/users.json', 'utf8', function readFileCallback(err, data){
+			if (err){
+				console.log(err);
+			} else {
+			var obj = JSON.parse(data); //now it an object
+			let user = obj.users;
+			console.log("getting to store post");
+			let status = 0;
+			user.NewField = 'SavedList';
+			for (var i = 0; i<obj.users.length; i++)
+			{
+				console.log("getting to for loop");
+				if(username == user[i].UserName){
+					console.log("finding match");
+					user[i].SavedList = list;
+					console.log(user[i].SavedList[0]);
+				}
+				
+			}
+				
+		}});
+	
+     res.redirect("/list");	 
+	 
+});
 
 //render index page
 app.get("/", function(req, res) {

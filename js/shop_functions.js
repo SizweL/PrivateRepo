@@ -11,6 +11,8 @@ returned
 
 */
 
+let itemsList = [];
+
 let total_price = function(list_of_items)
 {
 	let total_price = 0;
@@ -91,7 +93,7 @@ let print_overal_list = function (itemsList, quantitiesList, priceList, actualBu
 
 }	
 
-function getItemList(){
+function getItemList(itemsList){
 	
 	return itemsList;
 	
