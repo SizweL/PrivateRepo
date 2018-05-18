@@ -2,13 +2,13 @@
 // dependencies required for the app
 'use strict';
 
-//dependencies required for the app
+// dependencies required for the app
 var NodeSession = require('node-session');
-var express = require("express");
-var bodyParser = require("body-parser");
+var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
 var actions = require('./js/actions');
-var friends = require("./js/friends");
+var friends = require('./js/friends'); // eslint-disable-line no-unused-vars
 var shop_functs = require('./js/shop_functions');
 var path = require('path');
 // var session = require('express-session');
@@ -19,17 +19,16 @@ var fs = require('fs');
 var session = new NodeSession({secret: 'Q3UBzdH9GEfiRCTKbi5MTPyChpzXLsTD'});
 
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('json'));
 
-app.use("/js",express.static('js'));
-app.set("view engine", "ejs");
-//render css files
+app.use('/js', express.static('js'));
+app.set('view engine', 'ejs');
+// render css files
 
 app.use(express.static(__dirname + '/public'));
-//app.use(session);
+// app.use(session);
 
 // placeholders for added task
 var task = [];
@@ -48,7 +47,7 @@ app.post('/addtask', function(req, res) {
   actions.add(newTask, newPrice, newQuantity);
   res.redirect('/list');
 });
-var user_id = [];
+var user_id = []; // eslint-disable-line no-unused-vars
 
 
 app.post('/removetask', function(req, res) {
@@ -110,8 +109,9 @@ app.post('/login-submit', function(req, res) {
         }
       }
       if (status === 0)	res.redirect('/login');
-  }});
+    }
   });
+});
 
 // render the ejs and display added task, completed task
 app.get('/list', function(req, res) {
