@@ -3,7 +3,6 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
 var actions = require('./js/actions');
-var shop_functs = require('./js/shop_functions');
 let path = require('path');
 //var session = require('express-session');
 var fs = require('fs');
