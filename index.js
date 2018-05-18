@@ -123,7 +123,7 @@ app.get("/save", function(req, res) {
     res.sendFile(path.join(__dirname, 'views', 'save.html'));
 });
 
-app.get("/store", function(req, res) {
+app.post("/store", function(req, res) {
 	let username = req.body.username;
 	let password = req.body.password;
 	var list = shop_functs.getItemList();
@@ -142,7 +142,7 @@ app.get("/store", function(req, res) {
 				
 			}
 	
-    res.render("store", {list:list});
+     res.redirect("/list");
 });
 
 //render index page
